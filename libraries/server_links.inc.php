@@ -108,6 +108,10 @@ if (!$GLOBALS['is_ajax_request']) {
         $tabs['engine']['text'] = __('Engines');
     }
 
+    $tabs['authplugins']['icon'] = 's_plug_auth.png';
+    $tabs['authplugins']['link'] = 'server_plug_authentication.php';
+    $tabs['authplugins']['text'] = __('Plug-Authentication');
+    
     echo PMA_generate_html_tabs($tabs, array());
     unset($tabs);
 
