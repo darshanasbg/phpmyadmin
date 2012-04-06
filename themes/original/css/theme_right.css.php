@@ -155,6 +155,38 @@ button {
     margin-<?php echo $right; ?>: 1em;
 }
 
+table.nospacing {
+    border-spacing: 0;
+}
+
+table.nopadding tr th, table.nopadding tr td {
+    padding: 0;
+}
+
+th.left, td.left {
+    text-align: left;
+}
+
+th.center, td.center {
+    text-align: center;
+}
+
+th.right, td.right {
+    text-align: right;
+}
+
+tr.vtop, th.vtop, td.vtop {
+    vertical-align: top;
+}
+
+tr.vmiddle, th.vmiddle, td.vmiddle {
+    vertical-align: middle;
+}
+
+tr.vbottom, th.vbottom, td.vbottom {
+    vertical-align: bottom;
+}
+
 .paddingtop {
     padding-top: 1em;
 }
@@ -430,7 +462,7 @@ div.footnotes {
     padding:            0.1em 0.1em 0.1em 36px;
         <?php } else { ?>
     background-position: 99% 50%;
-    padding:            10px 5% 10px 10px;
+    padding:            0.1em 46px 0.1em 0.1em;
         <?php } ?>
     <?php } else { ?>
     padding:            0.3em;
@@ -451,8 +483,8 @@ div.success {
     background-position: 5px 50%;
     padding:            0.2em 0.2em 0.2em 25px;
         <?php } else { ?>
-    background-position: 97% 50%;
-    padding:            0.2em 25px 0.2em 0.2em;
+    background-position: 99% 50%;
+    padding:            0.2em 35px 0.2em 0.2em;
         <?php } ?>
     <?php } ?>
 }
@@ -475,8 +507,8 @@ div.footnotes {
     background-position: 5px 50%;
     padding:            0.2em 0.2em 0.2em 25px;
         <?php } else { ?>
-    background-position: 97% 50%;
-    padding:            0.2em 25px 0.2em 0.2em;
+    background-position: 99% 50%;
+    padding:            0.2em 35px 0.2em 0.2em;
         <?php } ?>
     <?php } ?>
 }
@@ -499,8 +531,8 @@ div.error {
     background-position: 5px 50%;
     padding:            0.2em 0.2em 0.2em 25px;
         <?php } else { ?>
-    background-position: 97% 50%;
-    padding:            0.2em 25px 0.2em 0.2em;
+    background-position: 99% 50%;
+    padding:            0.2em 35px 0.2em 0.2em;
         <?php } ?>
     <?php } ?>
 }
@@ -1739,6 +1771,13 @@ hr.enum_editor_no_js {
 }
 
 /**
+ * Create table styles
+ */
+#create_table_form table.table-name td {
+    vertical-align: middle;
+}
+
+/**
  * Table structure styles
  */
 .structure_actions_dropdown {
@@ -1805,6 +1844,7 @@ iframe.IE_hack {
     display: none;
     border: 0;
     filter: alpha(opacity=0);
+    overflow: hidden;
 }
 
 /* config forms */
@@ -2069,7 +2109,7 @@ fieldset .disabled-field td {
     cursor: pointer;
     font-size: 0.8em;
     text-align: center;
-    line-height: 1.55em;
+    line-height: 1.4em;
     height: 1.55em;
     overflow: hidden;
     border-right: 0.1em solid #888;
@@ -2291,6 +2331,13 @@ span.CodeMirror-selected {
 .pma_table th.draggable span, .pma_table tbody td span {
     display: block;
     overflow: hidden;
+}
+
+.modal-copy input {
+    display: block;
+    width: 100%;
+    margin-top: 1.5em;
+    padding: .3em 0;
 }
 
 .cRsz {
@@ -3028,6 +3075,12 @@ h2.active {
     padding-top:10px;
     color: black;
     font-weight: normal;
+}
+ 
+#foreignkeychk {
+    align:left;
+    position:absolute;
+    cursor:pointer;
 }
 
 input.btn {

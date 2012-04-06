@@ -192,12 +192,16 @@ input[type=password] {
 
 }
 
-input[type=submit] {
-    font-weight: bold;
+input[type=submit],
+button[type=submit]:not(.mult_submit) {
+    font-weight: bold !important;
 }
 
 input[type=submit],
-input[type=reset] {
+button[type=submit]:not(.mult_submit),
+input[type=reset],
+input[name=submit_reset],
+input.button {
     margin-left: 14px;
     border: 1px solid #aaa;
     padding: 3px 7px;
@@ -215,14 +219,20 @@ input[type=reset] {
 }
 
 input[type=submit]:hover,
-input[type=reset]:hover {
+button[type=submit]:not(.mult_submit):hover,
+input[type=reset]:hover,
+input[name=submit_reset]:hover,
+input.button:hover {
     position: relative;
     <?php echo $_SESSION['PMA_Theme']->getCssGradient('cccccc', 'dddddd'); ?>
     cursor: pointer;
 }
 
 input[type=submit]:active,
-input[type=reset]:active {
+button[type=submit]:not(.mult_submit):active,
+input[type=reset]:active,
+input[name=submit_reset]:active,
+input.button:active {
     position: relative;
     top: 1px;
     left: 1px;
@@ -339,6 +349,38 @@ select[multiple] {
 .floatleft {
     float: <?php echo $left; ?>;
     margin-<?php echo $right; ?>: 1em;
+}
+
+table.nospacing {
+    border-spacing: 0;
+}
+
+table.nopadding tr th, table.nopadding tr td {
+    padding: 0;
+}
+
+th.left, td.left {
+    text-align: left;
+}
+
+th.center, td.center {
+    text-align: center;
+}
+
+th.right, td.right {
+    text-align: right;
+}
+
+tr.vtop, th.vtop, td.vtop {
+    vertical-align: top;
+}
+
+tr.vmiddle, th.vmiddle, td.vmiddle {
+    vertical-align: middle;
+}
+
+tr.vbottom, th.vbottom, td.vbottom {
+    vertical-align: bottom;
 }
 
 .paddingtop {
@@ -646,7 +688,7 @@ div.footnotes {
     padding: 10px 10px 10px 25px;
         <?php } else { ?>
     background-position: 99% 50%;
-    padding: 25px 10px 10px 10px
+    padding: 10px 35px 10px 10px;
         <?php } ?>
     <?php } else { ?>
     padding: .3em;
@@ -682,7 +724,7 @@ div.success {
         <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
     background-position: 5px 50%;
         <?php } else { ?>
-    background-position: 97% 50%;
+    background-position: 99% 50%;
         <?php } ?>
     <?php } ?>
 }
@@ -706,7 +748,7 @@ div.footnotes {
         <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
     background-position: 5px 50%;
         <?php } else { ?>
-    background-position: 97% 50%;
+    background-position: 99% 50%;
         <?php } ?>
     <?php } ?>
 }
@@ -730,7 +772,7 @@ div.error {
         <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
     background-position: 5px 50%;
         <?php } else { ?>
-    background-position: 97% 50%;
+    background-position: 99% 50%;
         <?php } ?>
     <?php } ?>
 }
@@ -2192,6 +2234,13 @@ hr.enum_editor_no_js {
 }
 
 /**
+ * Create table styles
+ */
+#create_table_form table.table-name td {
+    vertical-align: middle;
+}
+
+/**
  * Table structure styles
  */
 .structure_actions_dropdown {
@@ -2272,6 +2321,7 @@ iframe.IE_hack {
     display: none;
     border: 0;
     filter: alpha(opacity=0);
+    overflow: hidden;
 }
 
 /* config forms */
@@ -2560,7 +2610,7 @@ fieldset .disabled-field td {
     cursor: pointer;
     font-size: .8em;
     text-align: center;
-    line-height: 1.55em;
+    line-height: 1.4em;
     height: 1.55em;
     overflow: hidden;
     border-right: .1em solid #888;
@@ -2801,6 +2851,13 @@ span.CodeMirror-selected {
 .pma_table tbody td span {
     display: block;
     overflow: hidden;
+}
+
+.modal-copy input {
+    display: block;
+    width: 100%;
+    margin-top: 1.5em;
+    padding: .3em 0;
 }
 
 .cRsz {
@@ -3555,6 +3612,12 @@ h2.active {
     padding-top: 10px;
     color: black;
     font-weight: normal;
+}
+ 
+#foreignkeychk {
+    align:left;
+    position:absolute;
+    cursor:pointer;
 }
 
 input.btn {

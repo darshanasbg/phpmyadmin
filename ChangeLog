@@ -9,6 +9,25 @@ phpMyAdmin - ChangeLog
 + Patch #3497179 Contest-5: Add user: Allow create DB w/same name + grant u_%
 + Patch #3498201 Contest-6: Export all privileges
 + Patch #3502814 for rfe #3187077 Change password buttons should match
++ rfe #3488640 Expand table-group in non-light navigation frame if only one
++ Patch #3509360 Contest-3: Option "Truncate table" before "insert"
++ Patch #3506552 Contest-2: Show index information in the data dictionary
++ Patch #3510656 Contest-1: Ignoring foreign keys while dropping tables
+- Bug #3509686 Reverting sort on joined column does not work
++ New transformation: append string
++ rfe #3507804 Session upload progress (PHP 5.4)
++ rfe #3488185 draggable columns vs copy column name
++ Patch #3507001 Contest-4: Textarea for large character columns
++ Removed the PHP version of the ENUM editor
++ Patch #3507111 Display distinct results, linked to corresponding data rows
+
+3.5.1.0 (not yet released)
+- bug #3510784 [edit] Limit clause ignored when sort order is remembered
+- bug #3511471 [interface] View name not seen in navi panel (MySQL 5.1)
+- bug #3512916 [display] Right frame reloads after displaying SQL result(zero rows)
+- bug [interface] Fixed missing Codemirror for inline query edit when exporting a result set
+- bug #3514490 [auth] Multiple Navigation panels bug still present
+- bug #3515181 [users] Error in create user + underscore + create database
 
 3.5.0.0 (not yet released)
 + rfe #2021981 [interface] Add support for mass prefix change.
@@ -88,6 +107,10 @@ phpMyAdmin - ChangeLog
 3.4.11.0 (not yet released)
 - bug #3486970 [import] Exception on XML import
 - bug #3488777 [navi] $cfg['ShowTooltipAliasTB'] and blank names in navigation
+- bug #3512565 [navi] Fixed missing word "Rows" in table list tooltip after click
+
+3.4.10.2 (2012-03-28)
+- [security] Fixed local path disclosure vulnerability, see PMASA-2012-2
 
 3.4.10.1 (2012-02-18)
 - [security] XSS in replication setup, see PMASA-2012-1

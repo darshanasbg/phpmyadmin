@@ -319,11 +319,7 @@ for ($i = 0; $i < $num_fields; $i++) {
         . ' class="textfield" />'
         . '<p class="enum_notice" id="enum_notice_' . $i . '_' . ($ci - $ci_offset) . '">';
     $content_cells[$i][$ci] .= __('ENUM or SET data too long?')
-        . '<a onclick="return false;" href="enum_editor.php?'
-        . PMA_generate_common_url()
-        . '&amp;values=' . urlencode($length_to_display)
-        . '&amp;field=' .  (isset($row['Field']) ? urlencode($row['Field']) : "")
-        . '" class="open_enum_editor" target="_blank"> '
+        . '<a href="#" class="open_enum_editor"> '
         . __('Get more editing space') . '</a>'
         . '</p>';
     $ci++;
@@ -549,7 +545,7 @@ for ($i = 0; $i < $num_fields; $i++) {
 } // end for
 
     ?>
-<script src="./js/keyhandler.js" type="text/javascript"></script>
+<script src="js/keyhandler.js" type="text/javascript"></script>
 <script type="text/javascript">
 // <![CDATA[
 var switch_movement = 0;
@@ -563,10 +559,10 @@ echo PMA_generate_common_hidden_inputs($_form_params);
 unset($_form_params);
 if ($action == 'tbl_create.php') {
     ?>
-    <table>
+    <table class="table-name">
         <tr><td><?php echo __('Table name'); ?>:&nbsp;<input type="text" name="table" size="40" maxlength="80"
                 value="<?php echo (isset($_REQUEST['table']) ? htmlspecialchars($_REQUEST['table']) : ''); ?>"
-                class="textfield" />
+                class="textfield" autofocus />
             </td>
             <td>
                 <?php if ($action == 'tbl_create.php' || $action == 'tbl_addfield.php') { ?>
@@ -605,7 +601,7 @@ if (is_array($content_cells) && is_array($header_cells)) {
         if (is_array($content_row)) {
             foreach ($content_row as $content_row_val) {
                 ?>
-    <td align="center"><?php echo $content_row_val; ?></td>
+    <td class="center"><?php echo $content_row_val; ?></td>
                 <?php
             }
         }
@@ -624,7 +620,7 @@ if (is_array($content_cells) && is_array($header_cells)) {
 if ($display_type == 'horizontal') {
     $new_field = '';
     foreach ($empty_row as $content_row_val) {
-        $new_field .= '<td align="center">' . $content_row_val . '</td>';
+        $new_field .= '<td class="center">' . $content_row_val . '</td>';
     }
     ?>
 <script type="text/javascript">
@@ -657,7 +653,7 @@ function addField()
 if ($action == 'tbl_create.php') {
     ?>
     <table>
-    <tr valign="top">
+    <tr class="vtop">
         <th><?php echo __('Table comments'); ?>:&nbsp;</th>
         <td width="25">&nbsp;</td>
         <th><?php echo __('Storage Engine'); ?>:
@@ -688,7 +684,7 @@ if ($action == 'tbl_create.php') {
     <?php
     if (PMA_Partition::havePartitioning()) {
         ?>
-    <tr valign="top">
+    <tr class="vtop">
         <th><?php echo __('PARTITION definition'); ?>:&nbsp;<?php echo PMA_showMySQLDocu('Partitioning', 'Partitioning'); ?>
         </th>
     </tr>
